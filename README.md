@@ -1,5 +1,7 @@
 # AutoLogin
+
 该项目为使用Runtime和KVC制作的简易自动登录模块,将User中的属性替换为你项目中的属性即可使用
+
 字典转模型使用了KVC,如果需要嵌套模型或复杂数据类型,请参考使用MJExtension或其他框架的字典转模型技术.
 LoginManager为项目单例,User为用户模型
 
