@@ -54,8 +54,6 @@
         
         GJy.sex = 1;
         
-        [GJy updateUserInfo];
-        
         NSLog(@"修改 : \n%@\n%@\n%@\n%@\n%td",GJy.token,GJy.ID,GJy.user_name,GJy.phone,GJy.sex);
     } else {
         

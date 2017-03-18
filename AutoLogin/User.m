@@ -83,44 +83,49 @@ static NSString *const UserInfoMark = @"UserInfoMark";
 #pragma mark - 更新用户信息
 - (void)updateUserInfo {
 
-    unsigned int propertyCount;
-    
-    Ivar *ivars = class_copyIvarList([self class], &propertyCount);
-    
-    NSMutableArray *mArray = [[NSMutableArray alloc] initWithCapacity:5];
-    
-    for (int i = 0; i < propertyCount; i++) {
+    if ([LoginManager shareManager].user.isLogin) {
         
-        NSString *key = [NSString stringWithUTF8String:ivar_getName(ivars[i])];
+        unsigned int propertyCount;
         
-        if (self.ignorePropertyArray && [self.ignorePropertyArray containsObject:key]) {
+        Ivar *ivars = class_copyIvarList([self class], &propertyCount);
+        
+        NSMutableArray *mArray = [[NSMutableArray alloc] initWithCapacity:5];
+        
+        for (int i = 0; i < propertyCount; i++) {
             
-            continue;
+            NSString *key = [NSString stringWithUTF8String:ivar_getName(ivars[i])];
+            
+            if (self.ignorePropertyArray && [self.ignorePropertyArray containsObject:key]) {
+                
+                continue;
+            }
+            
+            [mArray addObject:key];
         }
         
-        [mArray addObject:key];
-    }
-    
-    free(ivars);
-    
-    NSDictionary *userInfoDict = [self dictionaryWithValuesForKeys:mArray];
-    
-    NSMutableDictionary *mUserInfoDict = [userInfoDict mutableCopy];
-    
-    for (NSString *key in userInfoDict.allKeys) {
+        free(ivars);
         
-        id value = [self valueForKey:key];
+        NSDictionary *userInfoDict = [self dictionaryWithValuesForKeys:mArray];
         
-        //NSLog(@"key : %@  value : %@  [value class] : %@",key,value,[value class]);
+        NSMutableDictionary *mUserInfoDict = [userInfoDict mutableCopy];
         
-        if (!value) {
+        for (NSString *key in userInfoDict.allKeys) {
             
-             [mUserInfoDict removeObjectForKey:key];
+            id value = [self valueForKey:key];
+            
+            //NSLog(@"key : %@  value : %@  [value class] : %@",key,value,[value class]);
+            
+            if (!value) {
+                
+                 [mUserInfoDict removeObjectForKey:key];
+            }
         }
+        
+        [[NSUserDefaults standardUserDefaults] setObject:mUserInfoDict forKey:UserInfoMark];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
+        NSLog(@"成功保存用户数据");
     }
-    
-    [[NSUserDefaults standardUserDefaults] setObject:mUserInfoDict forKey:UserInfoMark];
-    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 /**
@@ -133,7 +138,7 @@ static NSString *const UserInfoMark = @"UserInfoMark";
 
 #pragma mark - 退出登录清空用户信息
 - (void)logout {
-
+    
     [[NSUserDefaults standardUserDefaults] setObject:@"1" forKey:UserInfoMark];
     
     [[NSUserDefaults standardUserDefaults] synchronize];
