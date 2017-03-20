@@ -6,19 +6,17 @@
 //  Copyright © 2017年 cnmobi. All rights reserved.
 //
 
-#import "User.h"
-#import <objc/runtime.h>
 #import "LoginManager.h"
+#import <objc/runtime.h>
+#import "Const.h"
+#import "GJyKeyChain.h"
 
 @implementation User 
 
-static NSString *const UserInfoMark = @"UserInfoMark";
-
 #pragma mark - 判断是否登录
-
 - (BOOL)isLogin {
     
-    return self.token != nil;
+    return self.token && self.ID;
 }
 
 
@@ -53,6 +51,8 @@ static NSString *const UserInfoMark = @"UserInfoMark";
      */
     [self setValuesForKeysWithDictionary:dict];
     
+    
+    //当账号密码登录时执行以下代码
     if (![[[NSUserDefaults standardUserDefaults] objectForKey:UserInfoMark] isKindOfClass:[NSDictionary class]]) {
         
         [self updateUserInfo];
@@ -82,9 +82,12 @@ static NSString *const UserInfoMark = @"UserInfoMark";
 
 #pragma mark - 更新用户信息
 - (void)updateUserInfo {
-
-    if ([LoginManager shareManager].user.isLogin) {
-        
+    
+        if (!self.token) {
+            
+            return;
+        }
+    
         unsigned int propertyCount;
         
         Ivar *ivars = class_copyIvarList([self class], &propertyCount);
@@ -125,15 +128,16 @@ static NSString *const UserInfoMark = @"UserInfoMark";
         [[NSUserDefaults standardUserDefaults] synchronize];
         
         NSLog(@"成功保存用户数据");
-    }
 }
 
 /**
- 忽略后台所给的用不到的的属性
+ 忽略不能存入NSUserDefaults的属性,如账号、密码、用户身份token等信息
  */
 - (NSArray *)ignorePropertyArray {
-  
-    return @[@"_ignore1",@"_ignore2",@"_ignore3"];  //return nil;
+
+    //return nil;
+    
+    return @[@"_token",@"_user_name"];
 }
 
 #pragma mark - 退出登录清空用户信息
@@ -144,6 +148,8 @@ static NSString *const UserInfoMark = @"UserInfoMark";
     [[NSUserDefaults standardUserDefaults] synchronize];
     
     [LoginManager shareManager].user = [[User alloc] init];
+    
+    [GJyKeyChain deleteKeyChain];
 }
 
 

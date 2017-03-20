@@ -7,6 +7,7 @@
 //
 
 #import "LoginManager.h"
+#import "GJyKeyChain.h"
 
 @implementation LoginManager
 
@@ -20,10 +21,22 @@ static LoginManager *manager = nil;
     static dispatch_once_t onceToken;
     
     dispatch_once(&onceToken, ^{
+        
         manager = [[self alloc] init];
+        
         if (!manager.user) {
         
             manager.user = [[User alloc] init];
+            
+            [GJyKeyChain singleInstanceWithKeyChain:^(NSString *token, NSString *userName) {
+               
+                manager.user.token = token;
+                manager.user.user_name = userName;
+
+            } withNull:^(BOOL isNull) {
+                
+                NSLog(@"钥匙串为空");
+            }];
         }
     });
 
@@ -42,6 +55,16 @@ static LoginManager *manager = nil;
         if (!manager.user) {
             
             manager.user = [[User alloc] init];
+            
+            [GJyKeyChain singleInstanceWithKeyChain:^(NSString *token, NSString *userName) {
+                
+                manager.user.token = token;
+                manager.user.user_name = userName;
+                
+            } withNull:^(BOOL isNull) {
+                
+                NSLog(@"钥匙串为空");
+            }];
         }
     });
     
@@ -60,6 +83,22 @@ static LoginManager *manager = nil;
     return self;
 }
 
+#pragma mark - 重写User的Setter
+- (void)setUser:(User *)user {
+
+    if (user.token) {
+        
+        //登录
+        _user = user;
+        
+        [GJyKeyChain updateKeyChain];
+        
+    } else {
+    
+        //退出
+        _user = user;
+    }
+}
 
 
 @end

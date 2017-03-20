@@ -13,8 +13,12 @@
 		942972801E78157400E1073D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9429727E1E78157400E1073D /* Main.storyboard */; };
 		942972821E78157400E1073D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 942972811E78157400E1073D /* Assets.xcassets */; };
 		942972851E78157400E1073D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 942972831E78157400E1073D /* LaunchScreen.storyboard */; };
-		942972901E78159E00E1073D /* LoginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9429728D1E78159E00E1073D /* LoginManager.m */; };
-		942972911E78159E00E1073D /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 9429728F1E78159E00E1073D /* User.m */; };
+		9440E0021E7FDD6B009AAE89 /* LoginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9440E0011E7FDD6B009AAE89 /* LoginManager.m */; };
+		9440E0051E7FDD90009AAE89 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 9440E0041E7FDD90009AAE89 /* User.m */; };
+		9440E0091E7FDDD2009AAE89 /* Const.m in Sources */ = {isa = PBXBuildFile; fileRef = 9440E0081E7FDDD2009AAE89 /* Const.m */; };
+		9440E00D1E7FDDDC009AAE89 /* GJyKeyChain.m in Sources */ = {isa = PBXBuildFile; fileRef = 9440E00C1E7FDDDC009AAE89 /* GJyKeyChain.m */; };
+		9440E0101E7FFDC7009AAE89 /* NSArray+hans.m in Sources */ = {isa = PBXBuildFile; fileRef = 9440E00F1E7FFDC7009AAE89 /* NSArray+hans.m */; };
+		946FD1CE1E80043200C3AF5F /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 946FD1CD1E80043200C3AF5F /* Security.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,10 +32,17 @@
 		942972811E78157400E1073D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		942972841E78157400E1073D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		942972861E78157400E1073D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9429728C1E78159E00E1073D /* LoginManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginManager.h; sourceTree = "<group>"; };
-		9429728D1E78159E00E1073D /* LoginManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginManager.m; sourceTree = "<group>"; };
-		9429728E1E78159E00E1073D /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		9429728F1E78159E00E1073D /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		9440E0001E7FDD6B009AAE89 /* LoginManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginManager.h; sourceTree = "<group>"; };
+		9440E0011E7FDD6B009AAE89 /* LoginManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginManager.m; sourceTree = "<group>"; };
+		9440E0031E7FDD90009AAE89 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		9440E0041E7FDD90009AAE89 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		9440E0071E7FDDD2009AAE89 /* Const.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Const.h; sourceTree = "<group>"; };
+		9440E0081E7FDDD2009AAE89 /* Const.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Const.m; sourceTree = "<group>"; };
+		9440E00B1E7FDDDC009AAE89 /* GJyKeyChain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GJyKeyChain.h; sourceTree = "<group>"; };
+		9440E00C1E7FDDDC009AAE89 /* GJyKeyChain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GJyKeyChain.m; sourceTree = "<group>"; };
+		9440E00E1E7FFDC7009AAE89 /* NSArray+hans.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+hans.h"; sourceTree = "<group>"; };
+		9440E00F1E7FFDC7009AAE89 /* NSArray+hans.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+hans.m"; sourceTree = "<group>"; };
+		946FD1CD1E80043200C3AF5F /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +50,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				946FD1CE1E80043200C3AF5F /* Security.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,6 +62,7 @@
 			children = (
 				942972741E78157400E1073D /* AutoLogin */,
 				942972731E78157400E1073D /* Products */,
+				946FD1CC1E80043200C3AF5F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,10 +77,9 @@
 		942972741E78157400E1073D /* AutoLogin */ = {
 			isa = PBXGroup;
 			children = (
-				9429728C1E78159E00E1073D /* LoginManager.h */,
-				9429728D1E78159E00E1073D /* LoginManager.m */,
-				9429728E1E78159E00E1073D /* User.h */,
-				9429728F1E78159E00E1073D /* User.m */,
+				9440E0061E7FDDD2009AAE89 /* Config */,
+				9440E00A1E7FDDDC009AAE89 /* GJyKeyChain */,
+				9440DFFF1E7FDD6B009AAE89 /* LoginManager */,
 				942972781E78157400E1073D /* AppDelegate.h */,
 				942972791E78157400E1073D /* AppDelegate.m */,
 				9429727B1E78157400E1073D /* ViewController.h */,
@@ -84,9 +96,48 @@
 		942972751E78157400E1073D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9440E00E1E7FFDC7009AAE89 /* NSArray+hans.h */,
+				9440E00F1E7FFDC7009AAE89 /* NSArray+hans.m */,
 				942972761E78157400E1073D /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9440DFFF1E7FDD6B009AAE89 /* LoginManager */ = {
+			isa = PBXGroup;
+			children = (
+				9440E0001E7FDD6B009AAE89 /* LoginManager.h */,
+				9440E0011E7FDD6B009AAE89 /* LoginManager.m */,
+				9440E0031E7FDD90009AAE89 /* User.h */,
+				9440E0041E7FDD90009AAE89 /* User.m */,
+			);
+			path = LoginManager;
+			sourceTree = "<group>";
+		};
+		9440E0061E7FDDD2009AAE89 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				9440E0071E7FDDD2009AAE89 /* Const.h */,
+				9440E0081E7FDDD2009AAE89 /* Const.m */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		9440E00A1E7FDDDC009AAE89 /* GJyKeyChain */ = {
+			isa = PBXGroup;
+			children = (
+				9440E00B1E7FDDDC009AAE89 /* GJyKeyChain.h */,
+				9440E00C1E7FDDDC009AAE89 /* GJyKeyChain.m */,
+			);
+			path = GJyKeyChain;
+			sourceTree = "<group>";
+		};
+		946FD1CC1E80043200C3AF5F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				946FD1CD1E80043200C3AF5F /* Security.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -161,10 +212,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				942972911E78159E00E1073D /* User.m in Sources */,
+				9440E0051E7FDD90009AAE89 /* User.m in Sources */,
+				9440E0021E7FDD6B009AAE89 /* LoginManager.m in Sources */,
+				9440E00D1E7FDDDC009AAE89 /* GJyKeyChain.m in Sources */,
 				9429727D1E78157400E1073D /* ViewController.m in Sources */,
-				942972901E78159E00E1073D /* LoginManager.m in Sources */,
+				9440E0091E7FDDD2009AAE89 /* Const.m in Sources */,
 				9429727A1E78157400E1073D /* AppDelegate.m in Sources */,
+				9440E0101E7FFDC7009AAE89 /* NSArray+hans.m in Sources */,
 				942972771E78157400E1073D /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -322,6 +376,7 @@
 				9429728B1E78157400E1073D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

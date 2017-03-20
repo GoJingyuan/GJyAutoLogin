@@ -6,6 +6,7 @@
 //  Copyright © 2017年 cnmobi. All rights reserved.
 //
 
+//用户资料模型
 #import <Foundation/Foundation.h>
 
 @interface User : NSObject
@@ -35,8 +36,8 @@
 #pragma mark - Property
 //以下为归/解档忽略属性
 @property (nonatomic,copy) NSString *token;          //登录获取
-@property (nonatomic,copy) NSString *ID;             //用户名id
 @property (nonatomic,copy) NSString *user_name;      //昵称
+@property (nonatomic,copy) NSString *ID;             //用户名id
 @property (nonatomic,copy) NSString *phone;          //手机号码
 @property (nonatomic,copy) NSString *head_photo;     //头像地址
 @property (nonatomic,assign) double balance;           //余额
@@ -52,9 +53,6 @@
 @property (nonatomic,assign) BOOL is_payword;          //是否设置了支付密码
 @property (nonatomic,copy) NSString *pay_salt;       //加密字符串
 @property (nonatomic,copy) NSString *openId;         //第三方登录ID
-@property (nonatomic,copy) NSString *ignore1;  //忽略的属性1
-@property (nonatomic,copy) NSString *ignore2;  //忽略的属性2
-@property (nonatomic,copy) NSString *ignore3;  //忽略的属性3
 
 
 @end
