@@ -7,14 +7,12 @@
 //
 
 #import "LoginManager.h"
-#import "GJyKeyChain.h"
 
 @implementation LoginManager
 
 static LoginManager *manager = nil;
 
 #pragma mark - 单例唯一性
-
 //创建单例
 + (instancetype)shareManager {
 
@@ -28,10 +26,12 @@ static LoginManager *manager = nil;
         
             manager.user = [[User alloc] init];
             
+            __weak typeof (manager) weakManager = manager;
+            
             [GJyKeyChain singleInstanceWithKeyChain:^(NSString *token, NSString *userName) {
                
-                manager.user.token = token;
-                manager.user.user_name = userName;
+                weakManager.user.token = token;
+                weakManager.user.user_name = userName;
 
             } withNull:^(BOOL isNull) {
                 
@@ -56,10 +56,12 @@ static LoginManager *manager = nil;
             
             manager.user = [[User alloc] init];
             
+            __weak typeof (manager) weakManager = manager;
+            
             [GJyKeyChain singleInstanceWithKeyChain:^(NSString *token, NSString *userName) {
                 
-                manager.user.token = token;
-                manager.user.user_name = userName;
+                weakManager.user.token = token;
+                weakManager.user.user_name = userName;
                 
             } withNull:^(BOOL isNull) {
                 
@@ -93,10 +95,14 @@ static LoginManager *manager = nil;
         
         [GJyKeyChain updateKeyChain];
         
+        NSLog(@"资料包user");
+        
     } else {
     
         //退出
         _user = user;
+        
+        NSLog(@"初始化user");
     }
 }
 

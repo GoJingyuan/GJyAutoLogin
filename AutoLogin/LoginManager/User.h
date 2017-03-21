@@ -8,6 +8,7 @@
 
 //用户资料模型
 #import <Foundation/Foundation.h>
+#import "Const.h"
 
 @interface User : NSObject
 

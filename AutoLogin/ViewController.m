@@ -91,6 +91,10 @@
     // Do any additional setup after loading the view, typically from a nib.
     
     NSLog(@"启动App : \ntoken:%@\nID:%@\nuser_name:%@\nphone:%@\nsex:%td",GJy.token,GJy.ID,GJy.user_name,GJy.phone,GJy.sex);
+    
+    
+    NSLog(@"path : %@",[NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) lastObject]);
+
 }
 
 #pragma mark - RAM
