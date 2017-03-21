@@ -4,12 +4,16 @@
 
 字典-->模型使用了KVC,如果需要嵌套模型或复杂数据类型,请参考使用MJExtension或其他框架.
 
-Guide : LoginManager为程序单例,User为用户模型,GJyKeyChain为钥匙串
+
+
+## Guide : LoginManager为程序单例,User为用户模型,GJyKeyChain为钥匙串
+
+
 
 ## API介绍:
 
 
-A、LoginManager.h
+### A、LoginManager.h
 
 #### + (instancetype)shareManager;
 程序单例
@@ -18,7 +22,7 @@ A、LoginManager.h
 是否存在可用的用户缓存
 
 
-B、User.h
+### B、User.h
 
 #### - (BOOL)isLogin;
 判断用户是否登录
@@ -36,7 +40,7 @@ B、User.h
 可在内部手动添加需要忽略的属性
 
 
-C、GJyKeyChain.h
+### C、GJyKeyChain.h
 
 #### + (void)updateKeyChain;
 写入钥匙串信息
