@@ -55,20 +55,6 @@
         //当账号密码登录时执行以下代码
         [self updateUserInfo];
     }
-
-    
-//    /*
-//     NSUserDefaults写入文件需要时间,在某种情况下可能会造成写入失败,
-//     故不再使用UserInfoMark的类型来区分登录类型(自动登录或账号密码登录)
-//     
-//     if (![[[NSUserDefaults standardUserDefaults] objectForKey:UserInfoMark] isKindOfClass:[NSDictionary class]]) {
-//         //当账号密码登录时执行以下代码
-//         [self updateUserInfo];
-//     }
-//     */
-//    if (self.isLogin) {
-//        [self updateUserInfo];
-//    }
 }
 
 
@@ -144,7 +130,7 @@
 }
 
 /**
- 忽略不能存入NSUserDefaults的属性,如账号、密码、用户身份token等信息
+ 忽略不想存入NSUserDefaults的属性,如账号、密码、用户身份token等信息
  */
 - (NSArray *)ignorePropertyArray {
 

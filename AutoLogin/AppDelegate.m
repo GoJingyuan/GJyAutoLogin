@@ -20,7 +20,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    if ([self isLoginWithCache]) {
+    if ([LoginManager isLoginWithCache]) {
 
         NSLog(@"已登录");
     } else {
@@ -60,24 +60,6 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 
     [[LoginManager shareManager].user updateUserInfo];
-}
-
-
-- (BOOL)isLoginWithCache {
-
-    [GJyKeyChain singleInstanceWithKeyChain:^(NSString *token, NSString *userName) {
-        
-    } withNull:^(BOOL isNull) {
-        
-        if ([[[NSUserDefaults standardUserDefaults] objectForKey:UserInfoMark] isKindOfClass:[NSDictionary class]]) {
-            
-            [[NSUserDefaults standardUserDefaults] setObject:@"1" forKey:UserInfoMark];
-            
-            [[NSUserDefaults standardUserDefaults] synchronize];
-        }
-    }];
-    
-    return [LoginManager shareManager].user.isLogin;
 }
 
 @end

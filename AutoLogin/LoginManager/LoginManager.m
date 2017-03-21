@@ -12,6 +12,25 @@
 
 static LoginManager *manager = nil;
 
+#pragma mark - 防错处理与加载信息
++ (BOOL)isLoginWithCache {
+    
+    [GJyKeyChain singleInstanceWithKeyChain:^(NSString *token, NSString *userName) {
+        
+    } withNull:^(BOOL isNull) {
+        
+        if ([[[NSUserDefaults standardUserDefaults] objectForKey:UserInfoMark] isKindOfClass:[NSDictionary class]]) {
+            
+            [[NSUserDefaults standardUserDefaults] setObject:@"1" forKey:UserInfoMark];
+            
+            [[NSUserDefaults standardUserDefaults] synchronize];
+        }
+    }];
+    
+    return [LoginManager shareManager].user.isLogin;
+}
+
+
 #pragma mark - 单例唯一性
 //创建单例
 + (instancetype)shareManager {
@@ -95,14 +114,10 @@ static LoginManager *manager = nil;
         
         [GJyKeyChain updateKeyChain];
         
-        NSLog(@"资料包user");
-        
     } else {
     
         //退出
         _user = user;
-        
-        NSLog(@"初始化user");
     }
 }
 

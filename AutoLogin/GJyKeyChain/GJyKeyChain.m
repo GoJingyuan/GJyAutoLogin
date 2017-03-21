@@ -31,6 +31,24 @@
     NSLog(@"username = %@ && token = %@", GJy.user_name, GJy.token);
 }
 
++ (void)singleInstanceWithKeyChain:(void(^)(NSString *token,NSString *userName))KeyChainBlock withNull:(void(^)(BOOL isNull))error {
+    
+    NSMutableDictionary *keyChainDic = (NSMutableDictionary *)[GJyKeyChain load:KEY_KeyChainKey];
+    NSString *userName = [keyChainDic objectForKey:KEY_UserName];
+    NSString *token = [keyChainDic objectForKey:KEY_Token];
+    
+    
+    if (userName && token) {
+        
+        KeyChainBlock(token,userName);
+    } else {
+        
+        BOOL isNil = 1;
+        error(isNil);
+    }
+}
+
+
 #pragma mark - Root API
 /**
  取钥匙串
@@ -112,24 +130,6 @@
     NSMutableDictionary *keychainQuery = [self getKeychainQuery:service];
 
     SecItemDelete((CFDictionaryRef)keychainQuery);
-}
-
-#pragma mark - Single API
-+ (void)singleInstanceWithKeyChain:(void(^)(NSString *token,NSString *userName))KeyChainBlock withNull:(void(^)(BOOL isNull))error {
-
-    NSMutableDictionary *keyChainDic = (NSMutableDictionary *)[GJyKeyChain load:KEY_KeyChainKey];
-    NSString *userName = [keyChainDic objectForKey:KEY_UserName];
-    NSString *token = [keyChainDic objectForKey:KEY_Token];
-    
-    
-    if (userName && token) {
-        
-        KeyChainBlock(token,userName);
-    } else {
-        
-        BOOL isNil = 1;
-        error(isNil);
-    }
 }
 
 

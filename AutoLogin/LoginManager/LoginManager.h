@@ -12,8 +12,21 @@
 
 @interface LoginManager : NSObject
 
+/**
+ 1.防错处理
+ 2.载入信息
+ */
++ (BOOL)isLoginWithCache;
+
+/**
+ 单例
+ */
++ (instancetype)shareManager;
+
+/**
+ 用户信息
+ */
 @property (nonatomic) User *user;
 
-+ (instancetype)shareManager;
 
 @end
