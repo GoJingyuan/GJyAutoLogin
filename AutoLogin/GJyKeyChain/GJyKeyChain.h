@@ -25,9 +25,9 @@
 + (void)deleteKeyChain;
 
 /**
- 返回token和userName,仅在单例初始化时调用
+ 返回token和userName
  */
-+ (void)singleInstanceWithKeyChain:(void(^)(NSString *token,NSString *userName))KeyChainBlock withNull:(void(^)(BOOL isNull))error;
++ (void)InfoOfKeyChain:(void(^)(NSString *token,NSString *userName))KeyChainBlock withNull:(void(^)(BOOL isNull))error;
 
 
 @end

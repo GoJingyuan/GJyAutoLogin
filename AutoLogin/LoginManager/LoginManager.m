@@ -13,9 +13,9 @@
 static LoginManager *manager = nil;
 
 #pragma mark - 防错处理与加载信息
-+ (BOOL)isLoginWithCache {
++ (BOOL)couldLoginWithCache {
     
-    [GJyKeyChain singleInstanceWithKeyChain:^(NSString *token, NSString *userName) {
+    [GJyKeyChain InfoOfKeyChain:^(NSString *token, NSString *userName) {
         
     } withNull:^(BOOL isNull) {
         
@@ -47,7 +47,7 @@ static LoginManager *manager = nil;
             
             __weak typeof (manager) weakManager = manager;
             
-            [GJyKeyChain singleInstanceWithKeyChain:^(NSString *token, NSString *userName) {
+            [GJyKeyChain InfoOfKeyChain:^(NSString *token, NSString *userName) {
                
                 weakManager.user.token = token;
                 weakManager.user.user_name = userName;
@@ -77,7 +77,7 @@ static LoginManager *manager = nil;
             
             __weak typeof (manager) weakManager = manager;
             
-            [GJyKeyChain singleInstanceWithKeyChain:^(NSString *token, NSString *userName) {
+            [GJyKeyChain InfoOfKeyChain:^(NSString *token, NSString *userName) {
                 
                 weakManager.user.token = token;
                 weakManager.user.user_name = userName;

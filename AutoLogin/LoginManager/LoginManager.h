@@ -16,7 +16,7 @@
  1.防错处理
  2.载入信息
  */
-+ (BOOL)isLoginWithCache;
++ (BOOL)couldLoginWithCache;
 
 /**
  单例

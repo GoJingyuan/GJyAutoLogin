@@ -31,7 +31,7 @@
     NSLog(@"username = %@ && token = %@", GJy.user_name, GJy.token);
 }
 
-+ (void)singleInstanceWithKeyChain:(void(^)(NSString *token,NSString *userName))KeyChainBlock withNull:(void(^)(BOOL isNull))error {
++ (void)InfoOfKeyChain:(void(^)(NSString *token,NSString *userName))KeyChainBlock withNull:(void(^)(BOOL isNull))error {
     
     NSMutableDictionary *keyChainDic = (NSMutableDictionary *)[GJyKeyChain load:KEY_KeyChainKey];
     NSString *userName = [keyChainDic objectForKey:KEY_UserName];

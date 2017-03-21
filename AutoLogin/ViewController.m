@@ -25,11 +25,11 @@
     NSDictionary *serviceBackDic = @{
                                      @"token":@"2016_07_14",
                                      @"id":@"CM_229",
-                                     @"user_name":@"郭景元",
-                                     @"phone":@"18639539195",
+                                     @"user_name":@"GuoJingyuan",
+                                     @"phone":@"186xxxx9195",
                                      @"oneself_code":[NSNull null],
                                      @"test_key":@"test_value",
-                                     @"sex":@(0)
+                                     @"sex":@(1)
                                      };
 
     User *user = [[User alloc] init];
@@ -46,15 +46,15 @@
     
     if (GJy.isLogin) {
         
-        GJy.phone = @"459213641";
+        GJy.phone = @"459213xxx";
         
-        GJy.ID = @"004";
+        GJy.ID = @"T_4";
         
         GJy.user_name = @"GJy";
         
         GJy.token = @"HeiHeiHei";
         
-        GJy.sex = 1;
+        GJy.sex = 0;
         
         NSLog(@"修改 : \ntoken:%@\nID:%@\nuser_name:%@\nphone:%@\nsex:%td",GJy.token,GJy.ID,GJy.user_name,GJy.phone,GJy.sex);
         

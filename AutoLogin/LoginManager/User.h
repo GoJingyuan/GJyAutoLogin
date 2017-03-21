@@ -34,8 +34,8 @@
 - (void)logout;
 
 
-#pragma mark - Property
-//以下为归/解档忽略属性
+#pragma mark - Property (请根据不同项目自行替换)
+
 @property (nonatomic,copy)      NSString *token;          //登录获取
 @property (nonatomic,copy)      NSString *user_name;      //昵称
 @property (nonatomic,copy)      NSString *ID;             //用户名id

@@ -20,7 +20,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    if ([LoginManager isLoginWithCache]) {
+    if ([LoginManager couldLoginWithCache]) {
 
         NSLog(@"已登录");
     } else {
