@@ -6,8 +6,11 @@
 
 
 
-## Guide : LoginManager为程序单例,User为用户模型,GJyKeyChain为钥匙串
+## Guide :
 
+LoginManager为程序单例,User为用户模型,GJyKeyChain为钥匙串
+
+工程需要引入系统库Security.framework
 
 
 ## API介绍:
