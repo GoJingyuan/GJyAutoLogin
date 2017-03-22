@@ -31,12 +31,8 @@
                                      @"test_key":@"test_value",
                                      @"sex":@(1)
                                      };
-
-    User *user = [[User alloc] init];
     
-    [user initWithDict:serviceBackDic];
-    
-    GJy = user;
+    [GJy initWithDict:serviceBackDic];
 
     NSLog(@"重置属性 : \n%@\n%@\n%@\n%@\n%td",GJy.token,GJy.ID,GJy.user_name,GJy.phone,GJy.sex);
 }
