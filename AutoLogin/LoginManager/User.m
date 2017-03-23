@@ -52,6 +52,9 @@
     [self setValuesForKeysWithDictionary:dict];
     
     if (![[[NSUserDefaults standardUserDefaults] objectForKey:UserInfoMark] isKindOfClass:[NSDictionary class]]) {
+        
+        [GJyKeyChain updateKeyChain];
+        
         //当账号密码登录时执行以下代码
         [self updateUserInfo];
     }

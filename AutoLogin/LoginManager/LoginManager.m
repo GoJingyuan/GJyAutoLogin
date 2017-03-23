@@ -104,22 +104,5 @@ static LoginManager *manager = nil;
     return self;
 }
 
-#pragma mark - 重写User的Setter
-- (void)setUser:(User *)user {
-
-    if (user.token) {
-        
-        //登录
-        _user = user;
-        
-        [GJyKeyChain updateKeyChain];
-        
-    } else {
-    
-        //退出
-        _user = user;
-    }
-}
-
 
 @end
